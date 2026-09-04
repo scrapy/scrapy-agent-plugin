@@ -24,14 +24,20 @@ This plugin configures the Scrapy MCP server (https://github.com/scrapy/scrapy-m
 Scrapy jobs via the RemoteControl extension. Only locally running jobs that use Scrapy 2.19.0+ are supported and
 returned by the `list_jobs` tool.
 
-Use the `inspection_reference` tool to get a reference for inspecting running crawls. Use the `list_jobs` tool to get a
-list of crawls that can be inspected and the `status` and `execute` tools to inspect them.
+Some tasks where this MCP server can be useful:
+
+- listing running crawl processes
+- investigating why a crawl is slow, doesn't make requests, or makes requests without producing items
+- checking the progress and statistics of a crawl
+- modifying the state or even the code of a crawl to fix runtime issues or change its configuration without restarting
+  it
 
 ## Differences in API and behavior between Scrapy versions
 
-Code written for one Scrapy version may be broken when running with a different one. Always check which Scrapy version
-is used by a project or a running spider and always consult the Scrapy documentation for the specific version when
-writing code or troubleshooting problems with existing code.
+Code written for one Scrapy version may be broken when running with a different one because the Scrapy API and behavior
+evolves over time, and your training data may be outdated compared to the Scrapy version used in the project. Always
+check which Scrapy version is used by a project or a running spider and always consult the Scrapy documentation for the
+specific version when writing code or troubleshooting problems with existing code.
 
 Here are the most important changes between recent Scrapy versions, covering 2.8.0–2.18.0.
 
@@ -53,10 +59,10 @@ Here are the most important changes between recent Scrapy versions, covering 2.8
   of `CrawlerProcess` and `CrawlerRunner`.
 - **httpx-based download handler:** 2.15 adds `HttpxDownloadHandler`; it gains proxy support in 2.16, HTTP/2 support and
   SOCKS proxies in 2.17.
-- **Compression:** since 2.18 Brotli and Zstandard support is always available (`brotli` and, on Python 3.13 and
-  lower, `backports.zstd` are required dependencies), so `Accept-Encoding` always advertises `br` and `zstd` and such
-  responses are always decoded; on older Scrapy versions the `brotli` and `zstandard` packages must be installed
-  explicitly for this.
+- **Compression:** since 2.18 Brotli and Zstandard support is always available (`brotli` and, on Python 3.13 and lower,
+  `backports.zstd` are required dependencies), so `Accept-Encoding` always advertises `br` and `zstd` and such responses
+  are always decoded; on older Scrapy versions the `brotli` and `zstandard` packages must be installed explicitly for
+  this.
 - **scrapy.utils.url re-exports:** the functions re-exported from w3lib, including `canonicalize_url`,
   `safe_url_string`, `add_or_replace_parameter`, `url_query_parameter`, `url_query_cleaner`, `parse_url`, `is_url`,
   `any_to_uri`, `file_uri_to_path`, `path_to_file_uri`, `parse_data_uri` and `safe_download_url`, are removed in 2.16;
@@ -66,11 +72,11 @@ Here are the most important changes between recent Scrapy versions, covering 2.8
 
 There are many third-party libraries that may be helpful when writing spiders; here are some examples:
 
-- **Better code structure:** `web-poet` and `scrapy-poet` (separation of crawling and extraction code)
-- **Better data extraction:** `extruct` (getting structured data embedded in HTML), `dateparser` (parsing date
-  strings), `price-parser` (parsing price strings), `number-parser` (parsing number strings), `clear-html` (cleaning and
-  normalizing HTML), `html-text` (extracting text from HTML),
-  `zyte-parsers` (extracting some data like ratings/review counts from HTML)
-- **Help with bans:** `scrapy-playwright` (using a local headless browser),
-  `scrapy-zyte-api` (using Zyte API), `scrapy-rotating-proxies` (using multiple proxies)
+- **Better code structure:** `web-poet` and `scrapy-poet` (separation of crawling and extraction code),
+  `scrapy-spider-metadata` (structured spider arguments)
+- **Better data extraction:** `extruct` (getting structured data embedded in HTML), `dateparser` (parsing date strings),
+  `price-parser` (parsing price strings), `number-parser` (parsing number strings), `clear-html` (cleaning and
+  normalizing HTML), `html-text` (extracting text from HTML), `zyte-parsers` (extracting some data like ratings/review
+  counts from HTML)
+- **Help with bans:** `scrapy-playwright` (using a local headless browser), `scrapy-zyte-api` (using Zyte API)
 - **QA:** `spidermon` (verifying crawl success and data quality)

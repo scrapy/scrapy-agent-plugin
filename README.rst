@@ -33,15 +33,6 @@ Point any client that supports the `Agent Plugins`_ standard at this repository.
 Requirements
 ============
 
-The skill
----------
-
-The ``scrapy`` skill supports working with projects using any modern Scrapy
-versions.
-
-The MCP server
---------------
-
 The MCP server requires uv_ and works with crawls running Scrapy 2.19.0 and
 higher. See `its documentation <Scrapy MCP server>`_ for more details.
 
