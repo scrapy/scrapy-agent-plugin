@@ -1,0 +1,13 @@
+{
+  "name": "scrapy",
+  "version": "0.1.0",
+  "description": "Scrapy support for AI agents: a Scrapy skill and a Scrapy MCP server.",
+  "author": {
+    "name": "Scrapy developers",
+    "email": "opensource@zyte.com"
+  },
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/scrapy/scrapy-agent-plugin",
+  "repository": "https://github.com/scrapy/scrapy-agent-plugin",
+  "keywords": ["scrapy", "web-scraping", "crawling", "mcp"]
+}

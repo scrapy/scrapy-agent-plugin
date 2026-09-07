@@ -1,0 +1,10 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "scrapy-mcp": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": ["--from", "scrapy-mcp-official", "scrapy-mcp"]
+    }
+  }
+}

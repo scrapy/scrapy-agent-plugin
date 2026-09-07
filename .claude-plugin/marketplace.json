@@ -1,0 +1,14 @@
+{
+  "name": "scrapy-agent-plugin",
+  "description": "Scrapy support for AI agents.",
+  "owner": {
+    "name": "Scrapy developers",
+    "email": "opensource@zyte.com"
+  },
+  "plugins": [
+    {
+      "name": "scrapy",
+      "source": "./"
+    }
+  ]
+}
