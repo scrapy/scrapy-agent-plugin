@@ -37,7 +37,8 @@ Some tasks where this MCP server can be useful:
 Code written for one Scrapy version may be broken when running with a different one because the Scrapy API and behavior
 evolves over time, and your training data may be outdated compared to the Scrapy version used in the project. Always
 check which Scrapy version is used by a project or a running spider and always consult the Scrapy documentation for the
-specific version when writing code or troubleshooting problems with existing code.
+specific version when writing code or troubleshooting problems with existing code. Consult
+https://docs.scrapy.org/en/latest/news.md for the full list of changes in each Scrapy version.
 
 Here are the most important changes between recent Scrapy versions, covering 2.8.0–2.18.0.
 
