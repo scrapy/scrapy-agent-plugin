@@ -34,7 +34,7 @@ Requirements
 ============
 
 The MCP server requires uv_ and works with crawls running Scrapy 2.19.0 and
-higher. See `its documentation <Scrapy MCP server>`_ for more details.
+higher. See `its documentation <Scrapy MCP server_>`__ for more details.
 
 .. _uv: https://docs.astral.sh/uv/
 .. _Scrapy MCP server: https://github.com/scrapy/scrapy-mcp-official
